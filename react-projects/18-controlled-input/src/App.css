@@ -19,6 +19,7 @@ button:active {
 h1 {
   font-size: 70px;
   margin-top: 20px;
+  cursor: default;
 }
 
 form {
