@@ -1,0 +1,16 @@
+.info {
+  padding: 20px;
+  max-width: 40%;
+  margin: 20px auto;
+  border: 2px solid grey;
+  border-radius: 10px;
+}
+
+.myOtherButton {
+  background-color: coral;
+}
+
+/*Works globally*/
+h2 {
+  color: blue;
+}
