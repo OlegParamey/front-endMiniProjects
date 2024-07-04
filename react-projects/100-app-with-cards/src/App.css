@@ -1,3 +1,51 @@
 .App {
   text-align: center;
 }
+
+.row {
+  margin: 25px;
+  padding: 15px;
+  min-height: 350px;
+  border-radius: 10px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.column {
+  float: left;
+  width: 33.33%;
+}
+
+.row .page-button {
+  margin-top: 35%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other on smaller screens (600px wide or less) */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+  }
+}
+.page-button {
+  background-color: #04aa6d;
+  border: none;
+  border-radius: 7px;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+.page-button:active {
+  background-color: #048a59;
+  transform: translateY(1.2px);
+}
