@@ -14,4 +14,11 @@
 .todoText {
   width: 100%;
   text-align: left;
+  font-weight: bold;
+}
+
+.todoIcon {
+  font-size: 1.8rem;
+  margin-right: 15px;
+  color: teal;
 }
