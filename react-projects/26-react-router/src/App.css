@@ -2,6 +2,33 @@
   text-align: center;
 }
 
+/* Used by default with NavLink
+/*
+.active {
+  color: lightcoral;
+  text-decoration: none;
+}
+  */
+
+.activeLink {
+  color: lightcoral;
+  text-decoration: none;
+}
+
+a {
+  color: rgb(134, 255, 215);
+  font-size: 35px;
+}
+
+nav {
+  background-color: darkslategray;
+  padding: 5px;
+}
+
+nav a {
+  margin: 15px;
+}
+
 button {
   padding: 15px;
   font-size: 30px;
