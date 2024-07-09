@@ -2,17 +2,25 @@
   text-align: center;
 }
 
-/* Used by default with NavLink
-/*
+/* Used by default with NavLink*/
+
 .active {
   color: lightcoral;
   text-decoration: none;
 }
-  */
 
 .activeLink {
   color: lightcoral;
   text-decoration: none;
+}
+
+.courseLink {
+  font-size: 35px;
+  text-decoration: none;
+}
+
+.courseLink:hover {
+  text-decoration: underline;
 }
 
 a {
