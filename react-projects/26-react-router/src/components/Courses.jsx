@@ -1,34 +1,46 @@
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import queryString from 'query-string'
 import courses from '../data/courses'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
+
+const SORT_KEY = ['title', 'slug', 'id']
+
+function sortCourses(courses, key) {
+  const sortedCourses = [...courses]
+  if (!key || !SORT_KEY.includes(key)) {
+    return sortedCourses
+  }
+  sortedCourses.sort((a, b) => {
+    if (a[key] < b[key]) return -1
+    if (a[key] > b[key]) return 1
+    return 0
+  })
+  return sortedCourses
+}
 
 const Courses = () => {
   //location = {prop: "val"}
   const location = queryString.parse(useLocation().search)
   const navigate = useNavigate()
-  let isSorted = false
+  const [sortKey, setSortKey] = useState(location.sort)
+  const [sortedCourses, setSortedCourses] = useState(
+    sortCourses(courses, sortKey)
+  )
 
   useEffect(() => {
-    if (!Object.hasOwn(courses[0], `${location.sort}`)) {
+    if (!SORT_KEY.includes(sortKey)) {
+      setSortKey()
+      setSortedCourses([...courses])
       navigate('.', { relative: 'path' })
     }
-  }, [location.sort, navigate])
+  }, [sortKey, navigate])
 
-  if (location.sort) {
-    courses.sort((a, b) => {
-      if (a[`${location.sort}`] < b[`${location.sort}`]) return -1
-      if (a[`${location.sort}`] > b[`${location.sort}`]) return 1
-      return 0
-    })
-    isSorted = true
-  }
-  console.log(courses)
+  console.log(sortedCourses)
 
   return (
     <>
-      <h1>{isSorted ? `Courses sorted by ${location.sort}` : `Courses`}</h1>
-      {courses.map((course) => (
+      <h1>{sortKey ? `Courses sorted by ${sortKey}` : `Courses`}</h1>
+      {sortedCourses.map((course) => (
         <div key={course.id}>
           <Link to={course.slug} className="courseLink">
             {course.title}
