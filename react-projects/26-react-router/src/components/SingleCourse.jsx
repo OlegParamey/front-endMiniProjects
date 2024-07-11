@@ -2,7 +2,7 @@ import { Link, useNavigate, useParams } from 'react-router-dom'
 import courses from '../data/courses'
 import { useEffect } from 'react'
 
-function SinglePageCourse() {
+function SingleCourse() {
   const { slug } = useParams()
   const navigate = useNavigate()
 
@@ -26,4 +26,4 @@ function SinglePageCourse() {
   )
 }
 
-export default SinglePageCourse
+export default SingleCourse

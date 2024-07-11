@@ -1,7 +1,8 @@
 import { Link, useLocation, useNavigate } from 'react-router-dom'
+import { useEffect, useState } from 'react'
 import queryString from 'query-string'
 import courses from '../data/courses'
-import { useEffect, useState } from 'react'
+import FilterDropDown from './FilterDropDown'
 
 const SORT_KEY = ['title', 'slug', 'id']
 
@@ -29,17 +30,23 @@ const Courses = () => {
 
   useEffect(() => {
     if (!SORT_KEY.includes(sortKey)) {
+      console.log(!SORT_KEY.includes(sortKey))
       setSortKey()
       setSortedCourses([...courses])
       navigate('.', { relative: 'path' })
     }
   }, [sortKey, navigate])
 
-  console.log(sortedCourses)
-
   return (
     <>
       <h1>{sortKey ? `Courses sorted by ${sortKey}` : `Courses`}</h1>
+      <FilterDropDown
+        setSortedCourses={setSortedCourses}
+        sortCourses={sortCourses}
+        setSortKey={setSortKey}
+        sortedCourses={sortedCourses}
+        SORT_KEY={SORT_KEY}
+      />
       {sortedCourses.map((course) => (
         <div key={course.id}>
           <Link to={course.slug} className="courseLink">
