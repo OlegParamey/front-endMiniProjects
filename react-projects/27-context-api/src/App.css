@@ -20,3 +20,18 @@ h1 {
   font-size: 90px;
   margin-top: 20px;
 }
+form {
+  font-size: 30px;
+}
+
+input {
+  font-size: 25px;
+  margin: 15px;
+  padding: 10px;
+  border: 0px;
+  border-radius: 15px;
+}
+
+label {
+  display: block;
+}
