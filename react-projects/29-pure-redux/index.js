@@ -1,13 +1,11 @@
 import store from './redux/store.js'
-import getCurrentTime from './utils/getCurrentTime.js'
+import { addCurrentTime, clearAllTimes } from './redux/actionCreators.js'
 
 const addTimeBtn = document.getElementById('addTime')
-addTimeBtn.addEventListener('click', () =>
-  store.dispatch({
-    type: 'ADD_CURRENT_TIME',
-    payload: getCurrentTime(),
-  })
-)
+addTimeBtn.addEventListener('click', () => store.dispatch(addCurrentTime()))
+
+const celarTimesBtn = document.getElementById('clearTimes')
+celarTimesBtn.addEventListener('click', () => store.dispatch(clearAllTimes()))
 
 const timesList = document.getElementById('timesList')
 
